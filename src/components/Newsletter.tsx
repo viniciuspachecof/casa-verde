@@ -1,7 +1,7 @@
 import { useState } from "react";
-import validator from 'validator'
+import validator from 'validator';
 
-const Newsletter = () => {
+const Newsletter = () => {  
   const [email, setEmail] = useState('');
   const [emailValido, setEmailValido] = useState(false);
 
@@ -16,6 +16,8 @@ const Newsletter = () => {
     event.preventDefault();
 
     alert(`Obrigado pela sua assinatura, você receberá nossas novidades no e-mail ${email}`);
+
+    fetch(`http://127.0.0.1:8000/send-email?email=${email}`).catch((error) => console.log(error));
 
     setEmail('');
     setEmailValido(false);
