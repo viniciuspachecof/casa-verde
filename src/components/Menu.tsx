@@ -7,7 +7,7 @@ const Menu = () => {
       <ul className="flex gap-5 pt-4 font-medium">
         <li>Como fazer</li>
         <li>/</li>
-        <li>Ofertas</li>
+        <li>Plantas</li>
         <li>/</li>
         <li>Depoimentos</li>
         <li>/</li>

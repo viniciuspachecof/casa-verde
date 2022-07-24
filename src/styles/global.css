@@ -3,5 +3,5 @@
 @tailwind utilities;
 
 html {
-  @apply mx-80 bg-gray-100
+  @apply mx-80 mb-10 bg-gray-100
 }

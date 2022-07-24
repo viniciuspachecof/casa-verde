@@ -35,7 +35,7 @@ const Newsletter = () => {
 
           <form method="post" onSubmit={enviarFormulario} className="flex flex-row">
             <input value={email} onChange={(event) => validarEmail(event)} className="w-full h-16 px-6 shadow-sm" placeholder="Insira seu e-mail" type="email" />
-            <button type="submit" disabled={!emailValido} className="w-72 bg-yellow-400 text-white text-sm disabled:opacity-50 shadow-md">Assinar newsletter</button>
+            <button type="submit" disabled={!emailValido} className="w-72 bg-yellow-400 text-white text-sm disabled:opacity-50 shadow-md rounded-sm">Assinar newsletter</button>
           </form>
         </div>
         <img src="/assets/imagem-planta.png" alt="imagem de uma planta" className="mt-7 w-[450px]" />
