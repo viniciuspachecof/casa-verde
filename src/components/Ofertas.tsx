@@ -26,7 +26,7 @@ const Ofertas = () => {
   function buscarPlantas(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     let listaAtulizada;
-    
+
     if (precoPlanta) {
       listaAtulizada = listaPlantas.filter((planta) => planta.preco < precoPlanta) 
     } else {
@@ -34,12 +34,12 @@ const Ofertas = () => {
     }
   
     if (ordenarPlanta) {
-      listaAtulizada = listaAtulizada.sort((a, b) => {
+      listaAtulizada = [...listaAtulizada].sort((a, b) => {
         return a[ordenarPlanta] > b[ordenarPlanta] ? 1 : -1
       })
     }
     
-    setListaPlantasFiltradas(listaAtulizada)
+    setListaPlantasFiltradas(listaAtulizada);
   }
 
   return (
@@ -49,18 +49,18 @@ const Ofertas = () => {
         <h1 className="font-bold text-7xl font-elsie">Plantas</h1>
       </div>
 
-      <form action="" className="flex flex-col gap-2" onSubmit={buscarPlantas}>
+      <form className="flex flex-col gap-2" onSubmit={(event) => buscarPlantas(event)}>
         <input className="w-80 h-12 px-6 shadow-sm" placeholder="Pesquisar preço de planta" type="number" onChange={(event) => setPrecoPlanta(Number(event.target.value))} />
         <select className="w-80 h-12 px-6" onChange={(event) => setOrdenarPlanta(event.target.value as 'name' | 'preco')}>
-          <option value="">Ordenar</option>
-          <option value="name">Por nome</option>
-          <option value="preco">Por preço</option>
+          <option key="a" value="">Ordenar</option>
+          <option key="b" value="name">Por nome</option>
+          <option key="c" value="preco">Por preço</option>
         </select>
         <button type="submit" className="w-48 h-12 bg-yellow-400 text-white text-sm disabled:opacity-50 shadow-md mb-8 rounded-sm">Buscar</button>
       </form>
 
       <div className="grid grid-cols-3 gap-8">
-        {listaPlantasFiltradas?.map((item, index) => { return <Planta key={index} {...item} /> })}
+        {listaPlantasFiltradas?.map((item, index) => <Planta key={index} {...item} /> )}
       </div>
     </>
   )
