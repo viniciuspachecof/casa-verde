@@ -12,6 +12,7 @@ const Newsletter = () => {
 
     setEmail(email);
     setEmailValido(validator.isEmail(email));
+    
   }
 
   function enviarFormulario(event: React.FormEvent<HTMLFormElement>) {
